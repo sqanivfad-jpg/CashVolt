@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function AccessibilityStatement({ onBack }: { onBack: () => void }) {
   return (
     <div className="glass-card animate-fade-in" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'right', padding: '2rem' }}>

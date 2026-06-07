@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Calculator from './components/Calculator';
 import ResultDisplay from './components/ResultDisplay';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -12,6 +12,11 @@ function App() {
   const [result, setResult] = useState<{ kwh: number; totalCost: number } | null>(null);
   const [isCalculating, setIsCalculating] = useState<boolean>(false);
   const [currentView, setCurrentView] = useState<ViewState>('calc');
+
+  // Scroll to top (smooth) whenever the view changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentView]);
 
   const handleCalculate = useCallback((current: number, previous: number, pricePerKwh: number, discount: number) => {
     setIsCalculating(true);
