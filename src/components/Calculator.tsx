@@ -27,7 +27,7 @@ export default function Calculator({ onCalculate, onReset }: CalculatorProps) {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    fetch('/config.json')
+    fetch(`${import.meta.env.BASE_URL}config.json`)
       .then(res => res.json())
       .then(data => {
         if (data && typeof data.pricePerKwh === 'number') {
